@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PyScript SPA</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <py-config>
+        [[fetch]]
+        files = ["./script.py"]
+    </py-config>
+</head>
+<body>
+    <div class="container">
+        <h1>PyScript SPA</h1>
+        <div id="init-form">
+            <h2>Initialize App</h2>
+            <input type="text" id="class-input" placeholder="Enter class">
+            <input type="email" id="email-input" placeholder="Enter email">
+            <button py-click="init_app()">Submit</button>
+        </div>
+        <nav id="main-nav" style="display: none;">
+            <button py-click="show_console()">Console</button>
+            <button py-click="show_calculator()">Calculator</button>
+        </nav>
+        <div id="console" style="display: none;">
+            <h2>Python Console</h2>
+            <py-repl id="my-repl"></py-repl>
+        </div>
+        <div id="calculator" style="display: none;">
+            <h2>Sum Calculator</h2>
+            <input type="number" id="num1" placeholder="Enter first number">
+            <input type="number" id="num2" placeholder="Enter second number">
+            <button py-click="calculate_sum()">Calculate Sum</button>
+            <div id="result"></div>
+        </div>
+    </div>
+    <py-script src="./script.py"></py-script>
+</body>
+</html>

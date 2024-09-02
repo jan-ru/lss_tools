@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python Console</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Python Console</h1>
+        <py-repl>
+# Try running some Python code!
+print("Hello, World!")
+
+# You can also define functions
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Student"))
+
+# Or work with data structures
+numbers = [1, 2, 3, 4, 5]
+squared = [n**2 for n in numbers]
+print(squared)
+        </py-repl>
+    </div>
+</body>
+</html>

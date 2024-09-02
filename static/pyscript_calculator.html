@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sum Calculator</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://pyscript.net/latest/pyscript.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script>
+        // Check if PyScript is already loaded
+        if (window.pyscript === undefined) {
+            const script = document.createElement('script');
+            script.src = "https://pyscript.net/latest/pyscript.js";
+            script.defer = true;
+            script.crossOrigin = "anonymous";
+            script.referrerPolicy = "no-referrer";
+            document.head.appendChild(script);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sum Calculator</h1>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button py-click="calculate_sum()">Calculate Sum</button>
+        <div id="result"></div>
+    </div>
+
+    <py-script>
+from pyscript import Element
+
+def calculate_sum():
+    try:
+        num1 = float(Element('num1').value)
+        num2 = float(Element('num2').value)
+        result = num1 + num2
+        Element('result').write(f"The sum is: {result}")
+    except ValueError:
+        Element('result').write("Please enter valid numbers")
+
+# Initialize the result div
+Element('result').write("Result will appear here")
+    </py-script>
+</body>
+</html>
